@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: biography-course
+  datasource:
+    url: jdbc:mysql://localhost:3308/coursebiography
+    username: root
+    password: admin
+
+  jpa:
+    properties:
+      hibernate:
+        dialect:  org.hibernate.dialect.MySQL5InnoDBDialect
+      ddl-auto: none
+    show-sql: true
+
+  flyway:
+    locations:
+      classpath: db/migration
+

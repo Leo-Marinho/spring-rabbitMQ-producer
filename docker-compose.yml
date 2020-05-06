@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+  rabbitmq1:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+    volumes:
+      - $PWD/storage/rabbitmq1:/var/lib/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+
+  dbcourse:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: messagedb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: messagesdb
+      MYSQL_ROOT_PASSWORD: messagedb
+    ports:
+      - 3308:3306
