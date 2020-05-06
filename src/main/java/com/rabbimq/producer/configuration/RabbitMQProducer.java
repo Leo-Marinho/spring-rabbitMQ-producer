@@ -51,5 +51,7 @@ public class RabbitMQProducer {
                              .to(exchange())
                              .with(deadLetter);
     }
+
+
 }
 
