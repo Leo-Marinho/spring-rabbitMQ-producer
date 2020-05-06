@@ -5,9 +5,9 @@ spring:
   application:
     name: biography-course
   datasource:
-    url: jdbc:mysql://localhost:3308/coursebiography
+    url: jdbc:mysql://localhost:3308/messagedb
     username: root
-    password: admin
+    password: messagedb
 
   jpa:
     properties:
@@ -19,4 +19,17 @@ spring:
   flyway:
     locations:
       classpath: db/migration
+
+  rabbitmq:
+    request:
+      host: localhost
+      port: 5672
+      username: admin
+      password: admin
+      exchenge:
+        producer: ex.producer.rabbitmq
+      routing-key:
+        producer: rk.producer.rabbitmq
+      dead-letter:
+        producer: dl.producer.aula-spring
 
