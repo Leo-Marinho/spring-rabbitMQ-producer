@@ -1,4 +1,4 @@
-package com.rabbimq.producer.model;
+package com.rabbitmq.producer.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "message")
 public class MessageEntity {
 
     @Id
@@ -33,4 +34,9 @@ public class MessageEntity {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDate dateUpdated;
+
+
+    public MessageEntity(final String text) {
+        this.text = text;
+    }
 }

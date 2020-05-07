@@ -1,6 +1,6 @@
-package com.rabbimq.producer.service;
+package com.rabbitmq.producer.service;
 
-import com.rabbimq.producer.dto.MessageDTO;
+import com.rabbitmq.producer.dto.MessageDTO;
 
 public interface MessageService {
 

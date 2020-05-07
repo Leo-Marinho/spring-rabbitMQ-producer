@@ -1,6 +1,6 @@
-package com.rabbimq.producer.repository;
+package com.rabbitmq.producer.repository;
 
-import com.rabbimq.producer.model.MessageEntity;
+import com.rabbitmq.producer.model.MessageEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
-package com.rabbimq.producer.amqp.impl;
+package com.rabbitmq.producer.amqp.impl;
 
-import com.rabbimq.producer.amqp.AmqpProducer;
-import com.rabbimq.producer.dto.MessageDTO;
+import com.rabbitmq.producer.amqp.AmqpProducer;
+import com.rabbitmq.producer.dto.MessageDTO;
 import org.springframework.amqp.AmqpRejectAndDontRequeueException;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +14,18 @@ public class ProducerRabbitMQ implements AmqpProducer<MessageDTO> {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    @Value("${spring.rabbitmq.request.exchenge.producer}")
+    @Value("${spring.rabbitmq.exchenge.producer}")
     private String exchange;
 
-    @Value("${spring.rabbitmq.request.routing-key.producer}")
+    @Value("${spring.rabbitmq.routing-key.producer}")
     private String queue;
 
-    @Value("${spring.rabbitmq.request.dead-letter.producer}")
+    @Value("${spring.rabbitmq.dead-letter.producer}")
     private String deadLetter;
+
 
     @Override
     public void producer(final MessageDTO message) {
-
         try {
             rabbitTemplate.convertAndSend(exchange, queue, message);
         } catch (final Exception ex) {

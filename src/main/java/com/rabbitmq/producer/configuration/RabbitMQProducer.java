@@ -1,6 +1,7 @@
-package com.rabbimq.producer.configuration;
+package com.rabbitmq.producer.configuration;
 
 import org.springframework.amqp.core.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,14 +9,17 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQProducer {
 
-    @Value("${spring.rabbitmq.request.exchenge.producer}")
+    @Value("${spring.rabbitmq.exchenge.producer}")
     private String exchange;
 
-    @Value("${spring.rabbitmq.request.routing-key.producer}")
+    @Value("${spring.rabbitmq.routing-key.producer}")
     private String queue;
 
-    @Value("${spring.rabbitmq.request.dead-letter.producer}")
+    @Value("${spring.rabbitmq.dead-letter.producer}")
     private String deadLetter;
+
+    @Autowired
+
 
     @Bean
     public DirectExchange exchange() {
@@ -51,7 +55,5 @@ public class RabbitMQProducer {
                              .to(exchange())
                              .with(deadLetter);
     }
-
-
 }
 
