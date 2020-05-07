@@ -11,6 +11,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
@@ -18,7 +19,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Entity
 @Table(name = "message")
-public class MessageEntity {
+public class MessageEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
